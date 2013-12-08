@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+
+<title>CS 253 Blog</title>
+</head>
+
+<body>
+	<a href="/blog" class="main-title"> CS 253 Blog </a>
+
+	<div class="login-area">
+
+		<a class="login-link" href="/login">login</a> | <a class="login-link"
+			href="/signup">signup</a>
+
+	</div>
+
+	<div id="content">
+
+		<div class="post">
+			{% for blogpost in blogposts %}
+	
+			<div class="post-heading">
+				<a href="/blog" class="post-title"> {{ blogpost.subject }} </a>
+
+				<div class="post-date"> {{ blogpost.date }} </div>
+			</div>
+
+			<div class="post-content">{{ blogpost.content }}
+			</div>
+		</div>
+		<br> <br> 
+		{% endfor %} <br> <br>
+
+		<div class="age">queried 0 seconds ago</div>
+
+	</div>
+
+</body>
+
+</html>
