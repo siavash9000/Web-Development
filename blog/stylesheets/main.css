@@ -56,6 +56,13 @@ input[type=text] {
     font-family: monospace;
 }
 
+input[type=submit] {
+    width: 100px;
+    font-size: 20px;
+
+    font-family: monospace;
+}
+
 textarea {
   width: 500px;
   height: 400px;
@@ -115,5 +122,10 @@ input[type=submit] {
     bottom: 0px;
     right: 0px;
     color: gray;
+    font-size: 12px;
+}
+
+.error{
+	color: red;
     font-size: 12px;
 }

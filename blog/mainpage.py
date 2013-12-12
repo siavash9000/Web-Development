@@ -1,22 +1,12 @@
-import webapp2
-import os
-import jinja2
+from templatehandler import TemplateHandler
 from entities import BlogPost;
-JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-    extensions=['jinja2.ext.autoescape'],
-    autoescape=True)
 
-class MainPageHandler(webapp2.RequestHandler):
-
+class MainPageHandler(TemplateHandler):
+    templatename = 'mainpage.html'
     def get(self):
-        self.response.headers['Content-Type'] = 'text/html'
-        template = JINJA_ENVIRONMENT.get_template('mainpage.html')
         posts_query = BlogPost.query()
         blogposts = posts_query.fetch(15)
-        
-        template_values = {
-            'blogposts': blogposts,
-        }
+       
+        template_values = {'blogposts': blogposts}
 
-        self.response.write(template.render(template_values))
+        self.render(self.templatename,template_values)

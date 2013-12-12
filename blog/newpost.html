@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
 <body>
-	<form method="post" action="/newpost">
-		<h1>Create new post:</h1>
-		<br> subject 
-		<br> <input name="subject" size="70"> 
-		<br> blog 
-		<br> <textarea name="content" cols="50" rows="10"></textarea>
-		<br> <input type="submit">
+	<h1>Create new post:</h1>
+	<form method="post" action="/blog/newpost">
+		<table>
+			<tr>
+				<td class="label">subject</td>
+				<td><input type="text" name="subject" size="70" value={{subject}}></td>
+				<td class="error">{{error}}</td>
+			</tr>
+			<tr>
+				<td class="label">blog</td>
+				<td><textarea name="content" cols="50" rows="10"></textarea>{{content}}</td>
+				<td class="error">{{error}}</td>
+			</tr>
+		</table>
+		
+		<input type="submit">
 	</form>
 </body>
 </html>
