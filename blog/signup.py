@@ -50,4 +50,4 @@ class SignupHandler(TemplateHandler):
         user.username = username
         user.hashed_password = hashlib.sha256(password).hexdigest()
         user.email = email
-        return user.put().id()
+        return user.put().id()      
