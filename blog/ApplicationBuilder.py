@@ -1,11 +1,13 @@
 from newpost import NewPostHandler
-from blog import BlogHandler
-from permalink import Permalink
+from blog import BlogHandler, BlogHandlerJson
+from permalink import Permalink, PermalinkJson
 from signup import SignupHandler
 from welcomehandler import WelcomeHandler
 from login import LoginHandler
 from logout import LogoutHandler
 import webapp2
 
-application = webapp2.WSGIApplication([('/blog/newpost', NewPostHandler),('/blog', BlogHandler),('/blog/(\d+)',Permalink),
-                                       ('/signup', SignupHandler),('/welcome',WelcomeHandler),('/login',LoginHandler),('/logout',LogoutHandler)], debug=True)
+application = webapp2.WSGIApplication([('/blog/newpost', NewPostHandler),('/blog', BlogHandler),('/', BlogHandler),
+                                       ('/blog/(\d+)',Permalink),('/blog/(\d+).json',PermalinkJson),
+                                       ('/blog/signup', SignupHandler),('/blog/welcome',WelcomeHandler),('/blog/login',LoginHandler),
+                                       ('/blog/logout',LogoutHandler),('/blog/.json', BlogHandlerJson)], debug=True)

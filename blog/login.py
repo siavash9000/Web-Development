@@ -28,7 +28,7 @@ class LoginHandler(TemplateHandler):
         else:
             hashed_userid = self.hasher.make_secure_val(str(user_id))
             self.response.headers.add_header('Set-Cookie','userid=%s' % hashed_userid)
-            self.redirect("/welcome")
+            self.redirect("/blog/welcome")
         templatevariables = {"error":error}
         self.render(self.templatename,templatevariables)
         
