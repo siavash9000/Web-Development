@@ -1,8 +1,8 @@
 from templatehandler import TemplateHandler
 from entities import BlogPost;
 
-class MainPageHandler(TemplateHandler):
-    templatename = 'mainpage.html'
+class BlogHandler(TemplateHandler):
+    templatename = 'blog.html'
     def get(self):
         posts_query = BlogPost.query()
         blogposts = posts_query.fetch(15)       
