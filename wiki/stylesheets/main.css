@@ -9,7 +9,7 @@ body {
     color: #333;
 }
 
-.login-area {
+.navbar-area {
     font-size: 13px;
     color: gray;
     position: absolute;
@@ -17,16 +17,16 @@ body {
     right: 10px;
 }
 
-.login-link {
+.link {
     color: gray;
     text-decoration: none;
 }
 
-.login-link:visited {
+.link:visited {
     color: gray;
 }
 
-.login-link:hover {
+.link:hover {
     text-decoration: underline;
 }
 

@@ -1,7 +1,7 @@
 from google.appengine.ext import ndb
 
-class BlogPost(ndb.Model):
-    subject = ndb.StringProperty(indexed = True)
+class WikiPage(ndb.Model):
+    url = ndb.StringProperty(indexed = True)
     content = ndb.TextProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
     

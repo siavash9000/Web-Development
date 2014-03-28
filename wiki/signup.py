@@ -40,7 +40,7 @@ class SignupHandler(TemplateHandler):
             hashed_userid = self.hasher.make_secure_val(str(userid))
             print "userid : ",hashed_userid
             self.response.headers.add_header('Set-Cookie','userid=%s' % hashed_userid)
-            self.redirect("/blog/welcome")
+            self.redirect("/welcome")
         templatevariables = {"usernameerror":usernameerror,"passworderror":passworderror,
                              "passwordverifyerror":passwordverifyerror,"emailerror":emailerror}
         self.render(self.templatename,templatevariables)
