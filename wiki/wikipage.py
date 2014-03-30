@@ -9,7 +9,6 @@ class WikiPageHandler(TemplateHandler):
     def get(self, page_url):
         page = memcache.get(page_url)
         lastUpdate = memcache.get('lastUpdate_'+page_url)
-        print page_url
         if not page or not lastUpdate:
             page_query = WikiPage.query(WikiPage.url == page_url)
             wiki_page_object = page_query.fetch(1)
@@ -23,7 +22,6 @@ class WikiPageHandler(TemplateHandler):
             
         age = int(math.ceil((datetime.datetime.now() - lastUpdate).total_seconds()-1))    
         ageString = 'Queried {} seconds ago'.format(age)
-        print page       
         template_values = {'content': page, 'id':page_url, 'age': ageString,'editlink':"/_edit"+page_url}
         self.render(self.templatename, template_values)
         

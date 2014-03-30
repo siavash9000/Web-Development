@@ -15,7 +15,6 @@ class EditHandler(TemplateHandler):
             self.render(self.templatename,template_values)
         else:
             self.persist(url,content)
-            print url
             self.redirect(url)
     
     def persist(self, url,content):
@@ -28,10 +27,14 @@ class EditHandler(TemplateHandler):
         newPage.url = url
         newPage.content = content
         newPage.put()
-        print url
-        memcache.add(url,content)
-        lastUpdate = datetime.datetime.now()
-        memcache.add('lastUpdate_'+url,lastUpdate)
+        if memcache.get(url):
+            memcache.replace(url,content)
+            lastUpdate = datetime.datetime.now()
+            memcache.replace('lastUpdate_'+url,lastUpdate)
+        else:
+            memcache.add(url,content)
+            lastUpdate = datetime.datetime.now()
+            memcache.add('lastUpdate_'+url,lastUpdate)
     
     def getContent(self,url):
         page_query = WikiPage.query(WikiPage.url == url)
