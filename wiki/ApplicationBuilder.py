@@ -4,6 +4,7 @@ from logout import LogoutHandler
 from welcomehandler import WelcomeHandler
 from edit import EditHandler
 from wikipage import WikiPageHandler
+from history import HistoryPageHandler
 
 import webapp2
 
@@ -14,6 +15,7 @@ application = webapp2.WSGIApplication([('/signup', SignupHandler),
                                ('/logout', LogoutHandler),
                                ('/welcome',WelcomeHandler),
                                ('/_edit' + PAGE_RE, EditHandler),
+                               ('/_history' + PAGE_RE, HistoryPageHandler),
                                (PAGE_RE, WikiPageHandler),
                                ],
                               debug=DEBUG)

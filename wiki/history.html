@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+</head>
+
+<body>
+	<div class="navbar-area">
+		<a class="link" href={{editlink}}>edit</a> | <a class="link" href={{viewlink}}>view</a> | <a class="link" href="/login">login</a> | <a class="link" href="/signup">signup</a>
+	</div>
+	<br><br>
+	<table cellpadding="20">
+	<colgroup>
+       <col span="1" style="width: 25%;">
+       <col span="1" style="width: 60%;">
+       <col span="1" style="width: 15%;">
+    </colgroup>
+		{% for entry in history %}
+		<tr>
+		<td class="{{ loop.cycle('odd', 'even') }}">{{ entry.date.strftime('%Y-%m-%d %H:%M:%S') }}</td> 
+		<td class="{{ loop.cycle('odd', 'even') }}">{{ entry.content }}</td> 
+		<td><a class="link" href={{editlink ~ "?version=" ~ loop.index}}>edit</a> | <a class="link" href={{viewlink}}>view</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+
+</html>
